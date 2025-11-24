@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - property:
+      name: "uuidType"
+      value: "uuid"
+      dbms: "postgresql"
+  - include:
+      file: "db.changelog-0001-create-users-table.yaml"
+      relativeToChangelogFile: true
+  - include:
+      file: "db.changelog-0002-insert-users-table.yaml"
+      relativeToChangelogFile: true
+  - include:
+      file: db.changelog-0003-create-notification-types.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: db.changelog-0004-insert-notification-types.yaml
+      relativeToChangelogFile: true
