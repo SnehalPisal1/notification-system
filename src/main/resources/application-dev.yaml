@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/codechallenge_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-main.yaml
+
+  data:
+    redis:
+      host: redis
+      port: 6379
+
+  cache:
+    type: redis
+    ttl-minutes: 10
+    key-prefix: "dkb-dev"
+
+ratelimit:
+  capacity: 5
+  refill-tokens: 5
+  refill-duration-seconds: 30
+
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+    de.dkb.api.codeChallenge: INFO
+
+server:
+  port:8080
