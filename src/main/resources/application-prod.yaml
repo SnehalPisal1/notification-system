@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
+      password: ${REDIS_PASSWORD}
+      timeout: 10000
+
+logging:
+  level:
+    root: WARN
+    de.dkb.api.codeChallenge: INFO
+  file:
+    name: /var/log/notification-system/app.log
+
+cache:
+  ttl-minutes: 30
+  key-prefix: "dkb-prod"
+
+# Kafka listener
+kafka:
+  listener:
+    enabled: true
+
+# Rate Limiter Configuration
+ratelimit:
+  capacity: 10
+  refill-tokens: 10
+  refill-duration-seconds: 60
