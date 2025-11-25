@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: notification-system
+  profiles:
+    active: dev  # ← Set active profile here
+
+# Common settings that apply to all profiles
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.springframework: INFO
+    de.dkb.api.codeChallenge: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+
+
+
