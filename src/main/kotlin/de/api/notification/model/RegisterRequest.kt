@@ -1,4 +1,4 @@
-package de.notification.api.notification.model
+package de.api.notification.model
 
 import java.util.UUID
 
