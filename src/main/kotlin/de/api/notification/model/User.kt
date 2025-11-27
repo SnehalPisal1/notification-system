@@ -1,6 +1,6 @@
-package de.notification.api.notification.model
+package de.api.notification.model
 
-import de.notification.api.notification.util.NotificationTypeSetConverter
+import de.api.notification.util.NotificationTypeSetConverter
 import jakarta.persistence.Column
 import jakarta.persistence.Convert
 import jakarta.persistence.Entity
