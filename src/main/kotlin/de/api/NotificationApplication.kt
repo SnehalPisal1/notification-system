@@ -1,4 +1,4 @@
-package de.notification.api
+package de.api
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
