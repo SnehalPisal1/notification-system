@@ -17,4 +17,9 @@ class NotificationController(private val notificationService: NotificationServic
         return ResponseEntity.ok("User Registered - $saved")
     }
 
+    @PostMapping("/notify")
+    fun sendNotification(@RequestBody notificationDto: NotificationDto): ResponseEntity<Map<String, String>> {
+        notificationService.sendNotification(notificationDto)
+        return ResponseEntity.ok(mapOf("status" to "Notification processed"))
+    }
 }
