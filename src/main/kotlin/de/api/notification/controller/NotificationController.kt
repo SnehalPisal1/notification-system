@@ -11,5 +11,10 @@ import jakarta.validation.Valid
 
 @RestController
 class NotificationController(private val notificationService: NotificationService) {
+    @PostMapping("/register")
+    fun register(@RequestBody @Valid req: RegisterRequest): ResponseEntity<String> {
+        val saved = notificationService.registerUser(req)
+        return ResponseEntity.ok("User Registered - $saved")
+    }
 
 }
