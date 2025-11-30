@@ -17,7 +17,8 @@ class NotificationService{
     fun registerUser(req: RegisterRequest): User {
     }
 
-
+    fun sendNotification(notificationDto: NotificationDto) {
+    }
 }
 
 
