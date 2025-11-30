@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service
 @Service
 class NotificationService{
 
+    fun registerUser(req: RegisterRequest): User {
+    }
 
 
 }
