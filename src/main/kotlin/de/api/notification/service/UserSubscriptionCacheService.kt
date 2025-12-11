@@ -14,6 +14,9 @@ class UserSubscriptionCacheService(
 
     @Cacheable(cacheNames = ["userSubscriptions"], key = "#userId")
     fun getUserSubscriptions(userId: UUID): Set<String> {
-
+        logger.info("Fetching subscriptions from DB for user $userId")
+        return userRepository.findById(userId)
+            .map { it.notifications.toSet() }
+            .orElse(emptySet())
     }
 }
