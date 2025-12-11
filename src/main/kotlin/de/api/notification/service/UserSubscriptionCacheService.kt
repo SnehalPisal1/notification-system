@@ -11,4 +11,8 @@ class UserSubscriptionCacheService(
     private val userRepository: UserRepository
 ) {
 
+    @Cacheable(cacheNames = ["userSubscriptions"], key = "#userId")
+    fun getUserSubscriptions(userId: UUID): Set<String> {
+
+    }
 }
