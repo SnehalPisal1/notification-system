@@ -10,6 +10,7 @@ import java.util.UUID
 class UserSubscriptionCacheService(
     private val userRepository: UserRepository
 ) {
+    private val logger = LoggerFactory.getLogger(this::class.java)
 
     @Cacheable(cacheNames = ["userSubscriptions"], key = "#userId")
     fun getUserSubscriptions(userId: UUID): Set<String> {
