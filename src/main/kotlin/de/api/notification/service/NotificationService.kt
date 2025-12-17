@@ -84,7 +84,7 @@ class NotificationService(
             val categoryTypes = notificationTypeService.getAllTypesForCategory(targetCategory)
 
 
-// Check if user is subscribed to any type in that category
+        // Check if user is subscribed to any type in that category
         val subscribedByCategory = subscriptions.any { it in categoryTypes }
 
         if (subscribedByCategory) {
