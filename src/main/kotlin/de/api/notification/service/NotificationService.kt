@@ -80,7 +80,7 @@ class NotificationService(
             // find target category
             val targetCategory = notificationTypeService.getCategoryForType(type)
                 ?: throw UserNotSubscribedException("User not subscribed to this notification type : $type")
-//  Get all types in that category
+        //  Get all types in that category
             val categoryTypes = notificationTypeService.getAllTypesForCategory(targetCategory)
 
 
