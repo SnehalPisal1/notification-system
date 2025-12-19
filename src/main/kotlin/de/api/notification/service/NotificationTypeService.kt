@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service
 class NotificationTypeService(private val repo: NotificationTypeRepository) {
     private val logger = LoggerFactory.getLogger(this::class.java)
 
-
-
     // Cached: type -> category
     @Cacheable(cacheNames = ["typeCategory"], unless = "#result == null")
     fun getCategoryForType(type: String): String? {
