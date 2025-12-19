@@ -24,7 +24,6 @@ class NotificationTypeService(private val repo: NotificationTypeRepository) {
             .map { it.type }
     }
 
-
     fun isValidType(type: String): Boolean {
         val isValid = repo.existsById(type)
         logger.info("type = $type is= $isValid")
