@@ -16,5 +16,11 @@ class GlobalExceptionHandler {
     fun handleNotSubscribed(ex: UserNotSubscribedException) =
         ResponseEntity.status(HttpStatus.BAD_REQUEST).body(mapOf("error" to ex.message))
 
+
+    @ExceptionHandler(UserRegistrationException::class)
+    fun handleRegistrationError(ex: UserRegistrationException) =
+        ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(mapOf("error" to ex.message))
+
+
 }
 
