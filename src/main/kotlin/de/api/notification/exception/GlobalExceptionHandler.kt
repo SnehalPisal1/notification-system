@@ -21,6 +21,9 @@ class GlobalExceptionHandler {
     fun handleRegistrationError(ex: UserRegistrationException) =
         ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(mapOf("error" to ex.message))
 
+    @ExceptionHandler(RateLimitException::class)
+    fun handleRateLimit(ex: RateLimitException) =
+        ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body(mapOf("error" to ex.message))
 
 }
 
