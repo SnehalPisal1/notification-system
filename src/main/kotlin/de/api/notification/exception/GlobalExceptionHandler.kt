@@ -12,6 +12,9 @@ class GlobalExceptionHandler {
     fun handleUserNotFound(ex: UserNotFoundException) =
         ResponseEntity.status(HttpStatus.NOT_FOUND).body(mapOf("error" to ex.message))
 
+    @ExceptionHandler(UserNotSubscribedException::class)
+    fun handleNotSubscribed(ex: UserNotSubscribedException) =
+        ResponseEntity.status(HttpStatus.BAD_REQUEST).body(mapOf("error" to ex.message))
 
 }
 
