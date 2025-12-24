@@ -41,7 +41,7 @@ class NotificationService(
         if (existingUser.isPresent) {
             throw UserRegistrationException("User ${user.id} already registered.")
         }
-        //logger.info("Registering new user ${user.id} with notifications: ${user.notifications}")
+        logger.info("Registering new user ${user.id} with notifications: ${user.notifications}")
         return userRepository.save(user)
     }
 
