@@ -12,7 +12,12 @@ import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 
 @Service
-class NotificationService{
+class NotificationService(
+    private val userRepository: UserRepository,
+    private val notificationTypeService: NotificationTypeService,
+    private val rateLimiterService: RateLimiterService,
+    private val subscriptionCacheService: UserSubscriptionCacheService
+    ) {
 
     fun registerUser(req: RegisterRequest): User {
     }
