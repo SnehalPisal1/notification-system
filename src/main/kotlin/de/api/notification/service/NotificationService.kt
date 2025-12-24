@@ -46,17 +46,16 @@ class NotificationService(
     }
 
 
-
-        /**
-         * NOTE: The 'users' table stores types as a semicolon-separated string.
-         * Ideally, it should be normalized (one row per user-type) to simplify adding new types and remove string parsing.
-         * For now, the system handles new types dynamically based on categories so existing users
-         * receive all notifications for all types in their subscribed categories.
-         *
-         * /notify endpoint
-         * - checks rate limiter
-         * - checks whether user is subscribed either explicitly to the type OR to any type in its category
-         */
+    /**
+     * NOTE: The 'users' table stores types as a semicolon-separated string.
+     * Ideally, it should be normalized (one row per user-type) to simplify adding new types and remove string parsing.
+     * For now, the system handles new types dynamically based on categories so existing users
+     * receive all notifications for all types in their subscribed categories.
+     *
+     * /notify endpoint
+     * - checks rate limiter
+     * - checks whether user is subscribed either explicitly to the type OR to any type in its category
+     */
 
     fun sendNotification(notificationDto: NotificationDto) {
     }
