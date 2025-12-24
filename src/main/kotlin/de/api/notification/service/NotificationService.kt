@@ -19,6 +19,8 @@ class NotificationService(
     private val subscriptionCacheService: UserSubscriptionCacheService
     ) {
 
+    private val logger = LoggerFactory.getLogger(this::class.java)
+
     /**
      * /register endpoint
      * - checks invalid notification types
