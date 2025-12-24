@@ -31,7 +31,7 @@ class NotificationService(
         val user = User(id = req.id, notifications = req.notifications.toMutableSet())
         // Validate each notification type in the array
         val invalidTypes = req.notifications.filter { !notificationTypeService.isValidType(it) }
-        //logger.info("invalidTypes: $invalidTypes")
+        logger.info("invalidTypes: $invalidTypes")
 
         if (invalidTypes.isNotEmpty()) {
             throw UserRegistrationException("Invalid notification types: $invalidTypes")
