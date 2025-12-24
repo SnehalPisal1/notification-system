@@ -25,5 +25,9 @@ class GlobalExceptionHandler {
     fun handleRateLimit(ex: RateLimitException) =
         ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body(mapOf("error" to ex.message))
 
+    @ExceptionHandler(Exception::class)
+    fun handleUnknown(ex: Exception) =
+        ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+            .body(mapOf("error" to "Unexpected error: ${ex.message}"))
 }
 
