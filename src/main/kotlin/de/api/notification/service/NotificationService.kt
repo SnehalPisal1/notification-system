@@ -27,7 +27,6 @@ class NotificationService(
      * - checks user registering first time
      * - save data in table
      */
-
     fun registerUser(req: RegisterRequest): User {
     }
 
