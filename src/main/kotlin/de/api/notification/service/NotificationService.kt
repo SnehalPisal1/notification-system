@@ -28,7 +28,35 @@ class NotificationService(
      * - save data in table
      */
     fun registerUser(req: RegisterRequest): User {
+        val user = User(id = req.id, notifications = req.notifications.toMutableSet())
+        // Validate each notification type in the array
+        val invalidTypes = req.notifications.filter { !notificationTypeService.isValidType(it) }
+        //logger.info("invalidTypes: $invalidTypes")
+
+        if (invalidTypes.isNotEmpty()) {
+            throw UserRegistrationException("Invalid notification types: $invalidTypes")
+        }
+
+        val existingUser = userRepository.findById(user.id)
+        if (existingUser.isPresent) {
+            throw UserRegistrationException("User ${user.id} already registered.")
+        }
+        //logger.info("Registering new user ${user.id} with notifications: ${user.notifications}")
+        return userRepository.save(user)
     }
+
+
+
+        /**
+         * NOTE: The 'users' table stores types as a semicolon-separated string.
+         * Ideally, it should be normalized (one row per user-type) to simplify adding new types and remove string parsing.
+         * For now, the system handles new types dynamically based on categories so existing users
+         * receive all notifications for all types in their subscribed categories.
+         *
+         * /notify endpoint
+         * - checks rate limiter
+         * - checks whether user is subscribed either explicitly to the type OR to any type in its category
+         */
 
     fun sendNotification(notificationDto: NotificationDto) {
     }
