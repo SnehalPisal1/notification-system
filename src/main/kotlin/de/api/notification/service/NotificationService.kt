@@ -19,6 +19,13 @@ class NotificationService(
     private val subscriptionCacheService: UserSubscriptionCacheService
     ) {
 
+    /**
+     * /register endpoint
+     * - checks invalid notification types
+     * - checks user registering first time
+     * - save data in table
+     */
+
     fun registerUser(req: RegisterRequest): User {
     }
 
