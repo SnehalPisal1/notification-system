@@ -58,8 +58,17 @@ class NotificationService(
      */
 
     fun sendNotification(notificationDto: NotificationDto) {
-    }
-}
+
+        val type = notificationDto.notificationType
+        val userId = notificationDto.userId
+        // Rate limiting
+        val allowed = rateLimiterService.tryConsume(userId.toString())
+        if (!allowed) {
+            throw RateLimitException("Rate limit exceeded for user ${notificationDto.userId}")
+
+        }
+
+        }
 
 
 
