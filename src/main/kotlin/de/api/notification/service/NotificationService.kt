@@ -17,7 +17,7 @@ class NotificationService(
     private val notificationTypeService: NotificationTypeService,
     private val rateLimiterService: RateLimiterService,
     private val subscriptionCacheService: UserSubscriptionCacheService
-    ) {
+) {
 
     private val logger = LoggerFactory.getLogger(this::class.java)
 
