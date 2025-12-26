@@ -65,6 +65,9 @@ class NotificationService(
         val allowed = rateLimiterService.tryConsume(userId.toString())
         if (!allowed) {
             throw RateLimitException("Rate limit exceeded for user ${notificationDto.userId}")
+// Load user from DB or not found user
+            userRepository.findById(userId).orElseThrow { UserNotFoundException("User not found: $userId") }
+
 
         }
 
