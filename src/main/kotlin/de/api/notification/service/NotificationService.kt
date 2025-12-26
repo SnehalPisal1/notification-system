@@ -68,6 +68,8 @@ class NotificationService(
 // Load user from DB or not found user
             userRepository.findById(userId).orElseThrow { UserNotFoundException("User not found: $userId") }
 
+// get cached subscriptions(i.e. notification types) as a Set<String>
+            val subscriptions = subscriptionCacheService.getUserSubscriptions(userId)
 
         }
 
