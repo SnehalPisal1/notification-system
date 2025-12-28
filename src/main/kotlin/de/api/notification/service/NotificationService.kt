@@ -71,6 +71,11 @@ class NotificationService(
 // get cached subscriptions(i.e. notification types) as a Set<String>
             val subscriptions = subscriptionCacheService.getUserSubscriptions(userId)
 
+
+//  Check subscriptions contains type or not
+            if (subscriptions.contains(type)) {
+                logger.info("Delivering notification type=$type to user=$userId message='${notificationDto.message}'")
+                return
         }
 
         }
