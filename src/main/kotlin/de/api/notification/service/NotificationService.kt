@@ -77,6 +77,10 @@ class NotificationService(
                 logger.info("Delivering notification type=$type to user=$userId message='${notificationDto.message}'")
                 return
         }
+            // find target category
+            val targetCategory = notificationTypeService.getCategoryForType(type)
+                ?: throw UserNotSubscribedException("User not subscribed to this notification type : $type")
+
 
         }
 
