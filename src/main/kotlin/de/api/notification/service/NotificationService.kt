@@ -91,7 +91,7 @@ class NotificationService(
            // logger.info("Delivering notification type=$type to user=$userId message='${notificationDto.message}'")
             return
         } else {
-           // logger.info("User $userId is not subscribed to type=$type or category=$targetCategory")
+            logger.info("User $userId is not subscribed to type=$type or category=$targetCategory")
             throw UserNotSubscribedException("User $userId is not subscribed to type=$type")
         }
 
