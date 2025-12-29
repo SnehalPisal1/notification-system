@@ -88,7 +88,7 @@ class NotificationService(
         val subscribedByCategory = subscriptions.any { it in categoryTypes }
 
         if (subscribedByCategory) {
-           // logger.info("Delivering notification type=$type to user=$userId message='${notificationDto.message}'")
+            logger.info("Delivering notification type=$type to user=$userId message='${notificationDto.message}'")
             return
         } else {
             logger.info("User $userId is not subscribed to type=$type or category=$targetCategory")
