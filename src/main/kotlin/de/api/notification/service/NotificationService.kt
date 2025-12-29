@@ -87,7 +87,18 @@ class NotificationService(
 // Check if user is subscribed to any type in that category
         val subscribedByCategory = subscriptions.any { it in categoryTypes }
 
+        if (subscribedByCategory) {
+           // logger.info("Delivering notification type=$type to user=$userId message='${notificationDto.message}'")
+            return
+        } else {
+           // logger.info("User $userId is not subscribed to type=$type or category=$targetCategory")
+            throw UserNotSubscribedException("User $userId is not subscribed to type=$type")
         }
+
+    }
+
+    }
+}
 
 
 
